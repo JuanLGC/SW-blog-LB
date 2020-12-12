@@ -49,5 +49,4 @@ router.patch('/:discussionId', async (req, res) => {
 })
 
 
-
 module.exports = router;
