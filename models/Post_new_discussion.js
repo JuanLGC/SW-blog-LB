@@ -10,7 +10,7 @@ const Discussion_schema = mongoose.Schema({
         required: true
     },
     comments: [{
-        title: String,
+        name: String,
         comment: String
     }],
     date: {

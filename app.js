@@ -18,8 +18,8 @@ mongoose.connect(process.env.MONGO_URI,
         useUnifiedTopology: true 
     }, 
     () => {
-        console.log('connected to db?');
+        console.log('connected to db');
     }
 )
 
-app.listen(3000);
+app.listen(8000);

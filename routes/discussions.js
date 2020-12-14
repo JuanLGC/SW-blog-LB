@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
         title: req.body.title,
         description: req.body.description
     });
+    console.log(req.body);
     try {
         const savedDiscussion = await post.save();
         res.json(savedDiscussion);
@@ -40,13 +41,23 @@ router.post('/', async (req, res) => {
 
 //update comments
 router.patch('/:discussionId', async (req, res) => {
+
     try {
         const updatedDiscussion = await Discussion.updateOne({_id : req.params.discussionId}, {$set: {comments: req.body.comments}})
         res.json(updatedDiscussion);
-    }catch(error){
+    } catch(error){
         res.json(error)
     }
 })
 
+//Delete Discussions
+router.delete('/:discussionId', async (req, res) => {
+    try {
+        const removedDiscussion = await Discussion.remove({ _id: req.params.discussionId})
+        res.json(removedDiscussion);
+    } catch(err) {
+        res.json({message: err})
+    }
+})
 
 module.exports = router;
